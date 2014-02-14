@@ -1,45 +1,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Encode</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+    <script src="js/placeholdem.min.js"></script>
   </head>
-  <body>
+  <body class="container">
     <h1>Message Encoder</h1>
     <p>This simple page lets you securely encrypt a message with a password. Your message will not leave your computer, and will not be sent over the Internet.</p>
     <p>Once it's encoded, you'll be able to share your message with anyone else who has the password.</p>
-    <textarea id="message" rows="6" cols="60"></textarea>
-    <br>
-    <button id="encrypt">Lock Down</button>
-
-    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
-
-    <script>
-      var encoder = {
-        setMessage: function() {
-
-        },
-        getPassword: function() {
-
-        },
-        setUrl: function() {
-
-        },
-        replaceMessageWithUrl: function () {
-
-        },
-        encrypt: function() {
-          cypher = CryptoJS.AES.encrypt(this.message, this.password)
-          console.log("Verified: " +
-            CryptoJS.AES.decrypt(cypher, this.password).toString(CryptoJS.enc.Utf8))
-          return cypher
-        },
-        protect: function() {
-          this.setMessage()
-          this.getPassword()
-          this.setUrl()
-          this.replaceMessageWithUrl()
-        }
-      }
-    </script>
+    <textarea id="message" rows="6" cols="60" placeholder="Put your secret message here"></textarea>
+    <h2><a href="#" id="secretlink" style="display:none;">Secret Link</a></h2>
+    <button id="encrypt" class="btn btn-primary">Lock Down</button>
   </body>
+    <script src="js/encode.js"></script>
+    <script type="text/javascript">
+    Placeholdem( document.querySelectorAll( '[placeholder]' ) );
+    </script>
 </html>
